@@ -66,3 +66,36 @@ service vsftpd restart
 echo "<?php
 phpinfo();
 ?>" >> /home/intro/index.php
+
+echo "tar -czpf /home/backup/miscell.`date +%Y%m%d%H%M%S`.tgz /home/miscell 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/fmput.`date +%Y%m%d%H%M%S`.tgz /home/fmput 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/sunyoung.`date +%Y%m%d%H%M%S`.tgz /home/sunyoung 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/nasf.`date +%Y%m%d%H%M%S`.tgz /home/nasf 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/sline.`date +%Y%m%d%H%M%S`.tgz /home/sline 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/chamjuk.`date +%Y%m%d%H%M%S`.tgz /home/chamjuk 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/remiz.`date +%Y%m%d%H%M%S`.tgz /home/remiz 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/rokits.`date +%Y%m%d%H%M%S`.tgz /home/rokits 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/conf.`date +%Y%m%d%H%M%S`.tgz /etc/apache2/sites-available 1>/dev/null 2>/dev/null
+#tar -czpf /home/backup/nextcloud.`date +%Y%m%d%H%M%S`.tgz /var/www/html/nextcloud 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/nextcloud.`date +%Y%m%d%H%M%S`.tgz /var/www/html/nextcloud | split -b 4096m 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/root.`date +%Y%m%d%H%M%S`.tgz /var/www/html/root 1>/dev/null 2>/dev/null
+tar -czpf /home/backup/letsencrypt.`date +%Y%m%d%H%M%S`.tgz /etc/letsencrypt 1>/dev/null 2>/dev/null
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 fmput > /home/backup/fmput.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 remiz > /home/backup/remiz.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 miscell > /home/backup/miscell.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 sline > /home/backup/sline.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 introgq > /home/backup/introgq.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 webend > /home/backup/webend.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 chamjuk > /home/backup/chamjuk.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 rokits > /home/backup/rokits.`date +%Y%m%d%H%M%S`.sql
+#mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 bo > /home/backup/bo.`date +%Y%m%d%H%M%S`.sql
+find /home/backup/ -type f -mtime +10 | sort | xargs rm -f
+#ncftpput -u "data" -p"introsi" nas.rokits.xyz /home/data/server /home/backup/*
+ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backup/*
+#ncftpput -u "admin" -p"introsi" 192.168.219.115 /VOLUME2/LGSERVER /home/backup/*
+#ncftpput -u "remiz" -p"introsi" rokits.xyz /home/intro /home/backup/*
+#rm -rf /home/backup/*" >> /root/backup.sh
+
+
+
+
