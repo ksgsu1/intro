@@ -95,6 +95,7 @@ ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backu
 #ncftpput -u "admin" -p"introsi" 192.168.219.115 /VOLUME2/LGSERVER /home/backup/*
 #ncftpput -u "remiz" -p"introsi" rokits.xyz /home/intro /home/backup/*
 #rm -rf /home/backup/*" >> /root/backup.sh
+chmod 700 /root/backup.sh
 
 
 
