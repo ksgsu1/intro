@@ -96,6 +96,7 @@ ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backu
 #ncftpput -u "remiz" -p"introsi" rokits.xyz /home/intro /home/backup/*
 #rm -rf /home/backup/*" >> /root/backup.sh
 chmod 700 /root/backup.sh
+chown intro.intro /home/intro/index.php
 
 
 
