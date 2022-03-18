@@ -27,7 +27,7 @@ sed -i 's/;date.timezone =/date.timezone = "Asia\/Seoul"/' /etc/php/7.4/fpm/php.
 sed -i 's/session.gc_maxlifetime = 1440/session.gc_maxlifetime = 86400/' /etc/php/7.4/fpm/php.ini
 sed -i 's/disable_functions =/disable_functions = system,exec,passthru,proc_open,popen,curl_multi_exec,parse_ini_file,show_source/' /etc/php/7.4/fpm/php.ini
 sed -i 's/allow_url_fopen = On/allow_url_fopen = Off/' /etc/php/7.4/fpm/php.ini
-
+sed -i 's/bind-address = 127.0.0.1 /#bind-address = 127.0.0.1 /' /etc/mysql/mariadb.conf.d/50-server.cnf
 apt-get -y install php-ssh2 -y
 
 apt-get -y install udisks2-btrfs -y
