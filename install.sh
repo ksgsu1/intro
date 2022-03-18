@@ -54,6 +54,10 @@ ln -s /etc/apache2/sites-available/192.168.219.146.conf /etc/apache2/sites-enabl
 sudo apt install python3-certbot-apache
 a2ensite 192.168.219.146.conf -y
 a2enmod rewrite
+sudo apt -y install cockpit
+
+sudo systemctl start cockpit
+
 
 #아파치 restart
 systemctl restart apache2
