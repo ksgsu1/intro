@@ -102,6 +102,17 @@ ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backu
 chmod 700 /root/backup.sh
 chown intro.intro /home/intro/index.php
 sudo apt-get upgrade -y
+mysql
+
+SELECT user,host,plugin,authentication_string FROM mysql.user;
+set password = password("!Speeds0119");
+use mysql;
+update user set plugin='mysql_native_password' where user='root';
+set password = password("!Speeds0119");
+flush privileges;
+SELECT user,host,plugin,authentication_string FROM mysql.user;
+
+exit
 
 
 
