@@ -51,7 +51,7 @@ echo "<VirtualHost *:80>
 </VirtualHost>" >> /etc/apache2/sites-available/192.168.219.146.conf
 
 ln -s /etc/apache2/sites-available/192.168.219.146.conf /etc/apache2/sites-enabled/192.168.219.146.conf
-sudo apt install python3-certbot-apache
+sudo apt install python3-certbot-apache -y
 a2ensite 192.168.219.146.conf -y
 a2enmod rewrite
 sudo apt -y install cockpit
