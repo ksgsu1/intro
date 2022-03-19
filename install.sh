@@ -102,6 +102,13 @@ ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backu
 chmod 700 /root/backup.sh
 chown intro.intro /home/intro/index.php
 sudo apt-get upgrade -y
+mv /root/intro/gnuboard5.4.5.5.tar.gz /home/intro
+cd /home/intro
+tar xvf gnuboard5.4.5.5.tar.gz
+mkdir data
+chown -R intro.intro *
+chmod -R 777 data
+
 
 
 
