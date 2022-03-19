@@ -101,7 +101,7 @@ ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backu
 #rm -rf /home/backup/*" >> /root/backup.sh
 chmod 700 /root/backup.sh
 chown intro.intro /home/intro/index.php
-
+apt-get update; apt-get upgrade -y
 
 
 
