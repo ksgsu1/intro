@@ -1,5 +1,21 @@
 #!/bin/sh  -- vi apm.sh
+echo "
+ =======================================================
+               < server 설치 하기>
+ =======================================================
+"
+echo "apm 설치 하시겠습니까? 'Y' or 'N'"
+read YN
+YN=`echo $YN | tr "a-z" "A-Z"`
+ 
+if [ "$YN" != "Y" ]
+then
+    echo "설치 중단."
+    exit
+fi
 
+echo""
+echo "설치를 시작 합니다."
 
 sudo rm /var/lib/apt/lists/lock
 sudo rm /var/cache/apt/archives/lock
@@ -70,7 +86,7 @@ service vsftpd restart
 
 echo "<?php
 phpinfo();
-?>" >> /home/intro/phpinfo.php
+?>" >> /home/lg/phpinfo.php
 
 echo "tar -czpf /home/backup/miscell.`date +%Y%m%d%H%M%S`.tgz /home/miscell 1>/dev/null 2>/dev/null
 tar -czpf /home/backup/fmput.`date +%Y%m%d%H%M%S`.tgz /home/fmput 1>/dev/null 2>/dev/null
@@ -101,16 +117,18 @@ ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backu
 #ncftpput -u "remiz" -p"introsi" rokits.xyz /home/intro /home/backup/*
 #rm -rf /home/backup/*" >> /root/backup.sh
 chmod 700 /root/backup.sh
-chown intro.intro /home/intro/index.php
 sudo apt-get upgrade -y
-mv /root/intro/gnuboard5.4.5.5.tar.gz /home/intro
-cd /home/intro
+mv /root/intro/gnuboard5.4.5.5.tar.gz /home/lg
+cd /home/lg
 tar xvf gnuboard5.4.5.5.tar.gz
 mkdir data
-chown -R intro.intro *
+chown -R lg.lg *
 chmod -R 777 data
+echo ""
+echo ""
+echo "서버설치가 완료 되었습니다. PhpMyadmin 을 실행 해 주십시요!"
+echo ""
+echo ""
+echo ""
 
-
-
-
-
+echo "
