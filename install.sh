@@ -51,8 +51,8 @@ apt-get -y install udisks2-btrfs -y
 
 
 echo "<VirtualHost *:80>
-    ServerName 192.168.219.146
-    ServerAlias 192.168.219.146
+    ServerName 192.168.219.148
+    ServerAlias 192.168.219.148
 
     DocumentRoot /home/intro
 
@@ -65,11 +65,11 @@ echo "<VirtualHost *:80>
     ErrorLog /var/log/error_log
     CustomLog /var/log/access_log common
 
-</VirtualHost>" >> /etc/apache2/sites-available/192.168.219.146.conf
+</VirtualHost>" >> /etc/apache2/sites-available/192.168.219.148.conf
 
-ln -s /etc/apache2/sites-available/192.168.219.146.conf /etc/apache2/sites-enabled/192.168.219.146.conf
+ln -s /etc/apache2/sites-available/192.168.219.146.conf /etc/apache2/sites-enabled/192.168.219.148.conf
 sudo apt install python3-certbot-apache -y
-a2ensite 192.168.219.146.conf -y
+a2ensite 192.168.219.148.conf -y
 a2enmod rewrite
 sudo apt -y install cockpit
 
@@ -86,7 +86,7 @@ service vsftpd restart
 
 echo "<?php
 phpinfo();
-?>" >> /home/lg/phpinfo.php
+?>" >> /home/intro/phpinfo.php
 
 echo "tar -czpf /home/backup/miscell.`date +%Y%m%d%H%M%S`.tgz /home/miscell 1>/dev/null 2>/dev/null
 tar -czpf /home/backup/fmput.`date +%Y%m%d%H%M%S`.tgz /home/fmput 1>/dev/null 2>/dev/null
@@ -119,10 +119,10 @@ ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backu
 chmod 700 /root/backup.sh
 sudo apt-get upgrade -y
 mv /root/intro/gnuboard5.4.5.5.tar.gz /home/lg
-cd /home/lg
+cd /home/intro
 tar xvf gnuboard5.4.5.5.tar.gz
 mkdir data
-chown -R lg.lg *
+chown -R intro.intro *
 chmod -R 777 data
 echo ""
 echo ""
