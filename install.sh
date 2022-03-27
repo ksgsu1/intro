@@ -1,22 +1,4 @@
 #!/bin/sh  -- vi apm.sh
-echo "
- =======================================================
-               < server 설치 하기>
- =======================================================
-"
-echo "apm 설치 하시겠습니까? 'Y' or 'N'"
-read YN
-YN=`echo $YN | tr "a-z" "A-Z"`
- 
-if [ "$YN" != "Y" ]
-then
-    echo "설치 중단."
-    exit
-fi
-
-echo""
-echo "설치를 시작 합니다."
-
 sudo rm /var/lib/apt/lists/lock
 sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock*
@@ -51,8 +33,8 @@ apt-get -y install udisks2-btrfs -y
 
 
 echo "<VirtualHost *:80>
-    ServerName 192.168.219.148
-    ServerAlias 192.168.219.148
+    ServerName remiz.xyz
+    ServerAlias remiz.xyz www.remiz.xyz
 
     DocumentRoot /home/intro
 
@@ -65,11 +47,11 @@ echo "<VirtualHost *:80>
     ErrorLog /var/log/error_log
     CustomLog /var/log/access_log common
 
-</VirtualHost>" >> /etc/apache2/sites-available/192.168.219.148.conf
+</VirtualHost>" >> /etc/apache2/sites-available/remiz.xyz.conf
 
-ln -s /etc/apache2/sites-available/192.168.219.146.conf /etc/apache2/sites-enabled/192.168.219.148.conf
+ln -s /etc/apache2/sites-available/192.168.219.146.conf /etc/apache2/sites-enabled/remiz.xyz.conf
 sudo apt install python3-certbot-apache -y
-a2ensite 192.168.219.148.conf -y
+a2ensite remiz.xyz.conf -y
 a2enmod rewrite
 sudo apt -y install cockpit
 
@@ -112,22 +94,9 @@ tar -czpf /home/backup/letsencrypt.`date +%Y%m%d%H%M%S`.tgz /etc/letsencrypt 1>/
 #mysqldump --extended-insert=FALSE -uroot -p!Speeds0119 bo > /home/backup/bo.`date +%Y%m%d%H%M%S`.sql
 find /home/backup/ -type f -mtime +10 | sort | xargs rm -f
 #ncftpput -u "data" -p"introsi" nas.rokits.xyz /home/data/server /home/backup/*
-ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backup/*
+#ncftpput -u "admin" -p"inst2020119#" remiz.ipdisk.co.kr /HDD2/server /home/backup/*
 #ncftpput -u "admin" -p"introsi" 192.168.219.115 /VOLUME2/LGSERVER /home/backup/*
 #ncftpput -u "remiz" -p"introsi" rokits.xyz /home/intro /home/backup/*
 #rm -rf /home/backup/*" >> /root/backup.sh
 chmod 700 /root/backup.sh
 sudo apt-get upgrade -y
-mv /root/intro/gnuboard5.4.5.5.tar.gz /home/lg
-cd /home/intro
-tar xvf gnuboard5.4.5.5.tar.gz
-mkdir data
-chown -R intro.intro *
-chmod -R 777 data
-echo ""
-echo ""
-echo "서버설치가 완료 되었습니다. PhpMyadmin 을 실행 해 주십시요!"
-echo ""
-echo ""
-echo ""
-
