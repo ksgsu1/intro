@@ -68,7 +68,7 @@ service vsftpd restart
 
 echo "<?php
 phpinfo();
-?>" >> /home/intro/phpinfo.php
+?>" >> /home/remiz/phpinfo.php
 
 echo "tar -czpf /home/backup/miscell.`date +%Y%m%d%H%M%S`.tgz /home/miscell 1>/dev/null 2>/dev/null
 tar -czpf /home/backup/fmput.`date +%Y%m%d%H%M%S`.tgz /home/fmput 1>/dev/null 2>/dev/null
