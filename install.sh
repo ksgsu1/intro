@@ -36,7 +36,7 @@ echo "<VirtualHost *:80>
     ServerName remiz.xyz
     ServerAlias remiz.xyz www.remiz.xyz
 
-    DocumentRoot /home/intro
+    DocumentRoot /home/remiz
 
     <Directory /home/*>
         Options FollowSymLinks MultiViews
@@ -49,7 +49,7 @@ echo "<VirtualHost *:80>
 
 </VirtualHost>" >> /etc/apache2/sites-available/remiz.xyz.conf
 
-ln -s /etc/apache2/sites-available/192.168.219.146.conf /etc/apache2/sites-enabled/remiz.xyz.conf
+ln -s /etc/apache2/sites-available/remiz.xyz.conf /etc/apache2/sites-enabled/remiz.xyz.conf
 sudo apt install python3-certbot-apache -y
 a2ensite remiz.xyz.conf -y
 a2enmod rewrite
